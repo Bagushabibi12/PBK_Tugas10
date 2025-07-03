@@ -1,0 +1,35 @@
+import { defineStore } from 'pinia'
+import { ref } from 'vue'
+
+export const useKostStore = defineStore('kost', () => {
+  const kosts = ref([
+    {
+      id: 1,
+      name: 'Kost Green Garden',
+      price: 1500000,
+      address: 'Jl. Merdeka No. 123, Jakarta',
+      facilities: ['AC', 'Kamar Mandi Dalam', 'Dapur Bersama', 'WiFi'],
+      description: 'Kost nyaman dengan taman hijau yang asri',
+      image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+    },
+    {
+      id: 2,
+      name: 'Kost Modern Minimalis',
+      price: 2000000,
+      address: 'Jl. Sudirman No. 45, Jakarta',
+      facilities: ['AC', 'Kamar Mandi Dalam', 'Laundry', 'WiFi', 'TV'],
+      description: 'Kost dengan desain modern dan minimalis',
+      image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+    }
+  ])
+
+  const fetchKosts = async () => {
+    return kosts.value
+  }
+
+  return {
+    kosts,
+    fetchKosts,
+    getKostById: (id) => kosts.value.find(kost => kost.id === parseInt(id))
+  }
+})

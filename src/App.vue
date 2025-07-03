@@ -1,7 +1,7 @@
 <template>
-  <div id=""app>
-    <Navbar/>
-    <router-view/>
+  <div class="app-container">
+    <Navbar />
+    <router-view />
   </div>
 </template>
 
@@ -12,3 +12,11 @@ export default {
   components: { Navbar }
 }
 </script>
+
+<style>
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+</style>
